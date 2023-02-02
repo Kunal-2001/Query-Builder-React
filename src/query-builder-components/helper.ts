@@ -24,7 +24,7 @@ export const conditionsMapping: Record<string, string> = {
 export const generateQuery = (ruleGroup: RuleGroup) => {
     let queryString = `"(`;
     
-    ruleGroup.children.map((child: Rule, index) => {
+    ruleGroup.children.forEach((child: Rule, index) => {
         const fieldValue = child.field ? fieldsMapping[child?.field] : '';
 
         queryString = queryString + fieldValue
