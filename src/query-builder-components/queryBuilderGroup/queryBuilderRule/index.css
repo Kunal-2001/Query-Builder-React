@@ -1,0 +1,27 @@
+.rule-dropdown-button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #404348;
+    border-radius: 4px;
+    height: 36px;
+    font-size: 14px;
+}
+
+.rule-dropdown-button:focus {
+    outline: none;
+}
+
+.rule-dropdown-menu {
+    background: #282B30;
+    border: 1px solid #404348;
+    border-radius: 4px;
+    color: #ffffff;
+    margin-top: 24px;
+    position: absolute;
+    top: 70px;
+    z-index: 100;
+}
+
+.rule-dropdown-element:hover {
+    background: rgba(196, 196, 196, 0.1);
+    border-radius: 4px;
+}

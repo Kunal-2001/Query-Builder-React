@@ -1,0 +1,15 @@
+.query-viewer {
+    border-radius: 4px;
+    padding: 8px;
+    background-color: #4338CA;
+    color: #FFFFFF;
+    font-size: small;
+    width: 600px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.query-builder {
+    height: 488px;
+}
