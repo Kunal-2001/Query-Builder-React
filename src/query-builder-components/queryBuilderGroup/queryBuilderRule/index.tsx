@@ -64,7 +64,7 @@ export default function QueryBuilderRule(props: any) {
         options.map((option: options) => {
             return (
                 <li>
-                    <a href="https://www.google.com/" className="block px-4 py-2 text-white rule-dropdown-element">{option.label}</a>
+                    <a href="#" className="block px-4 py-2 text-white rule-dropdown-element">{option.label}</a>
                 </li>
             )
         })
@@ -117,7 +117,7 @@ export default function QueryBuilderRule(props: any) {
   const fieldsOptions = fields.map((field: field) => {
     return (
         <li>
-            <a href="https://www.google.com/" className="block px-4 py-2 text-white rule-dropdown-element">{field.label}</a>
+            <a href="#" className="block px-4 py-2 text-white rule-dropdown-element">{field.label}</a>
         </li>
     )
   })
@@ -125,7 +125,7 @@ export default function QueryBuilderRule(props: any) {
   const conditionOptions = conditions.map((condition: condition) => {
     return (
         <li>
-            <a href="https://www.google.com/" className="block px-4 py-2 text-white rule-dropdown-element">{condition.label}</a>
+            <a href="#" className="block px-4 py-2 text-white rule-dropdown-element">{condition.label}</a>
         </li>
     )
   })
