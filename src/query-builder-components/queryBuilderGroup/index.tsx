@@ -1,9 +1,9 @@
 import React from 'react'
-import './index.css'
 import InfoIcon from '../../assets/info-button.svg';
 import QueryBuilderRule from './queryBuilderRule';
 import { Rule, RuleGroup } from '../dataModel';
 import uuid from 'react-uuid';
+import './index.css'
 
 const conjunctionTypes = [
   {
@@ -39,7 +39,7 @@ export default function QueryBuilderGroup(props: any) {
     )
   })
 
-  const queryRule = ruleGroup.children.map((rule: Rule, index: number)=> {
+  const queryRule = ruleGroup.children.filter((rule: Rule | RuleGroup) => rule.type === 'rule').map((rule: Rule, index: number)=> {
     return <QueryBuilderRule isSingleRule={index === 0} rule={rule} setRuleGroup={setRuleGroup} />
   })
 
@@ -57,19 +57,36 @@ export default function QueryBuilderGroup(props: any) {
     })
   }
 
+  const loadComponents = () => {
+    if (ruleGroup.children.length) {
+       return ruleGroup.children.filter((rule: Rule | RuleGroup) => rule.type === 'rule_group').map((rule_grp: RuleGroup) => {
+        return (
+          <QueryBuilderGroup ruleGroup={rule_grp} setRuleGroup />
+        )
+       })
+    }
+    return null;
+  }
+
   return (
     <div className='query-builder-container flex flex-col'>
       <div className='relative'>
-          <ul className="conjunction-options">
-            {conjunctions}
-          </ul>
-          <img className='absolute top-6 mt-2.5 ml-32' src={InfoIcon} alt='info-icon' />    
+          <div>
+            <ul className="conjunction-options">
+              {conjunctions}
+            </ul>
+            <img className='absolute top-6 mt-2.5 ml-32' src={InfoIcon} alt='info-icon' /> 
+          </div>
+          <div className='absolute top-1 left-[500px]'>
+            <button onClick={handleAddRule} style={{background: '#4F46E5'}} className='rounded-md w-28 h-9 text-white font-medium m-5'>+ Add filter</button>     
+            <button style={{background: '#4F46E5'}} className='rounded-md w-48 h-9 text-white font-medium ml-5 mb-5'>+ Add new group filter</button>       
+          </div>
       </div>
       <div className='pt-4'>
           {queryRule}
       </div>
       <div>
-          <button onClick={handleAddRule} style={{background: '#4F46E5'}} className='rounded-md w-28 h-9 text-white font-medium m-5'>+ Add filter</button>
+        {loadComponents()}
       </div>
     </div>
   )

@@ -4,7 +4,8 @@ export interface Rule {
     value?: string | number | Date
     type: 'rule'
     id?: string
-  }
+    parentPath?: Array<string>
+}
 
 export interface RuleGroup {
     children: Rule[]
@@ -12,4 +13,5 @@ export interface RuleGroup {
     not: boolean
     type: 'rule_group'
     id?: string
+    parentPath?: Array<string>
 }
