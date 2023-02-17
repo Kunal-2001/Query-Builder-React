@@ -16,6 +16,7 @@ export default function QueryBuilderDialog() {
     conjunction: 'AND',
     not: false,
     type: 'rule_group',
+    parentPath: [],
     children: [
       {
         type: 'rule',
@@ -45,13 +46,6 @@ export default function QueryBuilderDialog() {
       <div className='query-builder flex flex-col'>
           <div className='overflow-y-auto mt-8 flex flex-col justify-center items-center'>
             <QueryBuilderGroup setRuleGroup={setRuleGroup} ruleGroup={ruleGroup} />
-          </div>
-          <div className='flex flex-row divide-x divide-neutral-700'>
-            <div style={{minWidth: '65px'}}></div>
-            <div style={{minWidth: '65px'}}>&nbsp;</div>
-          </div>
-          <div>
-            <button style={{background: '#4F46E5'}} className='rounded-md w-48 h-9 text-white font-medium ml-5 mb-5'>+ Add new group filter</button>
           </div>
       </div>
     </div>
